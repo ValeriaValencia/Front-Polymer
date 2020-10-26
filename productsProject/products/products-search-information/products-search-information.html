@@ -1,0 +1,77 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="./bower_components/paper-input/paper-input.html">
+<link rel="import" href="./bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../products-search-bar-information/products-search-bar-information.html">
+
+<dom-module id="products-search-information">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .item {
+        border: 1px black solid;
+      }
+    </style>
+    
+    <products-search-bar-information title="Productos proximos" textbuttom="Buscarr"></products-search-bar-information>
+    <products-search-bar-information title="Productos proximos" textbuttom="Buscarr"></products-search-bar-information>
+    <template is="dom-repeat" items="{{products}}">
+      <div class="item">
+        <p>{{item.cantidad}}</p>
+        <p>{{item.nombre}}</p>
+        <p>Vence en :{{item.dias}} dias</p>
+      </div>
+    </template>
+  </template>
+  <script>
+    /**
+     * `products-search-information`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ProductsSearchInformation extends Polymer.Element {
+      static get is() { return 'products-search-information'; }
+      static get properties() {
+        return {
+          products: {
+            type: Array,
+            value: [
+              {
+                nombre : 'salsa',
+                dias : '3',
+                cantidad : 14
+              },
+              {
+                nombre : 'salsa 2',
+                dias : '5',
+                cantidad : 10
+              },
+              {
+                nombre : 'salsa 3',
+                dias : '8',
+                cantidad : 20
+              },
+              {
+                nombre : 'crema',
+                dias : '2',
+                cantidad : 15
+              },
+              {
+                nombre : 'jabon',
+                dias : '1',
+                cantidad : 12
+              }              
+            ],
+            notify: true
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ProductsSearchInformation.is, ProductsSearchInformation);
+  </script>
+</dom-module>

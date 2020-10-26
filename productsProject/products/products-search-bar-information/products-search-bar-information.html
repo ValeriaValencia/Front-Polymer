@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="./bower_components/paper-input/paper-input.html">
+
+<dom-module id="products-search-bar-information">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .bar-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    </style>
+    <div class="bar-content">
+      <span>{{title}}</span>
+      <div>
+        <input placeholder="{{textbuttom}}" value="{{searchValue::input}}"></input><button on-click="_search">{{textbuttom}}</button>
+        {{searchValue}}
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `products-search-bar-information`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ProductsSearchBarInformation extends Polymer.Element {
+      static get is() { return 'products-search-bar-information'; }
+      static get properties() {
+        return {
+          title: String,
+          textbuttom: String,
+          items: {
+            type: Array,
+            value: [],
+            notify: true
+          },
+          searchValue: String,
+        };
+      }
+    
+      _search() {
+        this.items = this.items.filter(item => {
+          return item.cantidad === searchValue;
+        });
+      }
+    }
+    
+    window.customElements.define(ProductsSearchBarInformation.is, ProductsSearchBarInformation);
+  </script>
+</dom-module>

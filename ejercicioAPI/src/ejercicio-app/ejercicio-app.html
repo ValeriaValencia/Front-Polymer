@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="ejercicio-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+
+    
+
+
+
+
+
+
+
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class EjercicioApp extends Polymer.Element {
+      static get is() { return 'ejercicio-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'ejercicio-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(EjercicioApp.is, EjercicioApp);
+  </script>
+</dom-module>

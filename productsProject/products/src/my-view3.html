@@ -1,0 +1,113 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+
+<dom-module id="my-view3">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .content {
+        display: inline-flex;
+        flex-direction: row;
+        border: 1px solid gray;
+      }
+      .icons {
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid gray;
+        justify-content: space-around;
+      }
+      .image {
+        background-color: gray;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .yearday {
+        display: flex;
+        flex: column;
+      }
+      p {
+        margin: 0 5px;
+      }
+      .content-img-date {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+    <div class="content">
+      <div>
+        <div class="content-img-date">
+          <div class="image"></div>
+          <div>
+            <div class="yearday">
+              <p>{{day}}</p>
+              <p>{{year}}</p>
+            </div>
+            <p>{{month}}</p>
+          </div>
+        </div>
+        
+        <div>{{username}}</div>
+        <div>{{userEmail}}</div>
+      </div>
+
+      <div class="icons">
+        <iron-icon icon="{{iconTop}}"></iron-icon>
+        <iron-icon icon="{{iconButtom}}"></iron-icon>
+      </div>
+    </div>
+
+
+  </template>
+
+  <script>
+    class MyView3 extends Polymer.Element {
+      static get is() { return 'my-view3'; }
+
+      /**
+        * Object describing property-related metadata used by Polymer features
+        */
+      static get properties() {
+        return {
+          username: String,
+          userEmail: String,
+          dateD: String,
+          iconTop: String,
+          iconButtom: String,
+          day: Number,
+          month: String,
+          year: Number
+          /* day: {
+            type: String,
+            value: () => new Date().getDay()
+          },
+          month: {
+            type: String,
+            value: () => new Date().getMonth()
+          },
+          year: {
+            type: String,
+            value: () => new Date().getFullYear()
+          }  */
+        };
+      }
+    }
+
+    window.customElements.define(MyView3.is, MyView3);
+  </script>
+</dom-module>

@@ -1,0 +1,23 @@
+-> Deserialización de los atributos en valores de propiedades
+
+Ahora vamos a llamar atributos a los valores que se colocan en una etiqueta HTML de un componente
+<mi-componente mi-atributo="valor del atributo"></mi-componente>
+
+-> Mayúsculas y minúsculas en atributos y propiedades
+
+la propiedad "miNumero" se correspondería con el atributo "mi-numero" en el HTML.
+Los nombres de atributo con guiones se convierten en nombres de propiedad camelCase al poner en mayúscula el carácter 
+que sigue a cada guión y luego se eliminan los guiones. Por ejemplo, el atributo se first-nameasigna a firstName.
+
+
+El atributo HTML "ciudadOrigen" se haría corresponder con la propiedad Polymer "ciudadorigen".
+Los nombres de los atributos se convierten a nombres de propiedades en minúsculas. Por ejemplo, el atributo se firstNameasigna a firstname.
+
+
+-> Tipos de datos en la deserialización
+
+El proceso por el que se traspasan los valores del HTML a las propiedades es la deserialización y en él se intentará corresponder el valor del atributo con el tipo de dato indicado en la declaración de la propiedad.
+Polymer nos hará el trabajo de corresponder y transformar aquella información al tipo correcto.
+Cadenas (String)
+Números (Number): Polymer se encarga de convertir la cadena en un valor numérico
+

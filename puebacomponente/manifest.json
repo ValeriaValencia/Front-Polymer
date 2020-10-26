@@ -1,0 +1,6 @@
+{
+  "name": "puebacomponente",
+  "short_name": "puebacomponente",
+  "start_url": "/",
+  "display": "standalone"
+}

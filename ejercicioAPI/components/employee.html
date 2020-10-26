@@ -1,0 +1,53 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-request.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<dom-module id="employe-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+
+    <iron-ajax
+    auto
+    url="https://demo6292426.mockable.io/api/recurso"
+    handle-as="json"
+    last-response="{{data}}"></iron-ajax>
+
+    <template is="dom-repeat" items="{{data}}" as=recurso>
+      <paper-card>
+        <div>
+          {{recurso.nombre}}
+        </div>
+      </paper-card>
+    </template>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class EmployeeApp extends Polymer.Element {
+      static get is() { return 'employe-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'EmployeeApp-app'
+          },
+          employees: {
+            type: Array,
+            value: function() {
+              return [];
+            }
+          }
+        }
+      }
+    }
+
+    window.customElements.define(EmployeeApp.is, EmployeeApp);
+  </script>
+</dom-module>

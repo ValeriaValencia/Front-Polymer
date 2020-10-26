@@ -1,0 +1,6 @@
+{
+  "name": "ciclo-vida",
+  "short_name": "ciclo-vida",
+  "start_url": "/",
+  "display": "standalone"
+}

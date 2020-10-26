@@ -1,0 +1,71 @@
+Las propiedades de un componete son practicamente los datos que va a tener internamente para trabajar
+
+
+DATA BINDING
+funciona siempre transmitiendo los datos de padres a hijos
+El binding de una dirección es el que transmite de padres a hijos y el binding de dos direcciones es el que además transmite el valor en dirección contraria: desde el hijo hasta el padre.
+Simplemente es un enlace, para asociar un mismo dato a diversos integrantes de una aplicación, de tal modo que si uno de ellos lo cambia, su valor cambie en los otros elementos que tienen ese dato bindeado.
+
+
+Un enlace de datos aparece en la plantilla DOM local como un atributo HTML:
+
+property-name=annotation-or-compound-binding
+attribute-name$=annotation-or-compound-binding
+El lado izquierdo del enlace identifica la propiedad o atributo de destino.
+
+Para enlazar a una propiedad, use el nombre de la propiedad en forma de atributo (guión-caso no camelCase), como se describe en Asignación de nombre de propiedad a nombre de atributo :
+
+<my-element my-property="{{hostProperty}}">
+Este ejemplo se une a la propiedad de destino, myPropertyen <my-element>.
+
+Para enlazar a un atributo, use el nombre del atributo seguido de $:
+
+<a href$="{{hostProperty}}">
+Este ejemplo se une al href atributo del elemento de anclaje .
+
+
+Los corchetes dobles ( {{ }}) admiten tanto el flujo de datos hacia arriba como hacia abajo.
+
+Los corchetes dobles ( [[ ]]) son unidireccionales y solo admiten el flujo de datos hacia abajo.
+
+
+
+
+MANEJADORES DE EVENTOS
+CUANDO EL USUARIO INTERACTUE CON EL COMPONENTE
+
+
+
+-> THIS me permite acceder a todo lo que este componente me ofrece
+
+ARRAY
+ El array se inicializa con una funcion que devuelval el array con los datos que quieres utilizar
+instrumentos: {
+            type: Array,
+            value: function() {
+              return [
+
+	      ];
+            }
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+-> json-server instrumentos.json sirve para crear apis rest,te sirven para prototipar 
+-> iron-ajar te eprmite de manera declarativa decir como es la solicitud que quiero realizar
+<iron-ajax> indica al html todos los pareametros necesarios para poder hacer esa solicitud hacia el servidor 
+last-response="" -> que voy a hacer yo,una vez que la solicitus se haya completado
+
+
+observer,programacion reactiva,reaccionar a cambios que sucedan en otros componentes(padr,hios
+
+mixin,compartir codigo entre distintos componentes)

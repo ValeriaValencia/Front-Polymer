@@ -1,0 +1,53 @@
+Propiedades Declaradas
+Nos permitirán manejar el estado de los componentes.
+Las propiedades declaradas pueden especificar:
+
+Tipo de propiedad.
+Valor por defecto.
+Observador de cambio de propiedad. Llama a un método siempre que cambia el valor de la propiedad.
+Estado de solo lectura. Evita cambios accidentales en el valor de la propiedad.
+Soporte de enlace de datos bidireccional. Activa un evento cada vez que cambia el valor de la propiedad.
+Propiedad calculada. Calcula dinámicamente un valor basado en otras propiedades.
+Reflejo de propiedad a atributo. Actualiza el valor del atributo correspondiente cuando cambia el valor de la propiedad.
+
+
+
+Admiten lo siguiente
+
+type			Tipo de atributo:Boolean, Date, Number, String, Arrayy Object.
+
+value			Tipo: boolean, number, stringo function.
+			Valor predeterminado de la propiedad.
+
+reflectToAttribute	Tipo: boolean
+
+readOnly		Tipo: boolean
+			Si true, la propiedad no se puede establecer directamente por asignación o enlace de datos
+
+notify			Tipo: boolean
+			Si true, la propiedad está disponible para el enlace de datos bidireccional. Además, property-name-changedse dispara un evento cada vez que cambia la propiedad.
+
+computed		Tipo: string
+			El valor se interpreta como un nombre de método y una lista de argumentos. Se invoca el método para calcular el valor cada vez que cambia cualquiera de los valores del argumento
+
+observer		Tipo: string
+			El valor se interpreta como un nombre de método que se invoca cuando cambia el valor de la propiedad.
+
+
+* reflectToAttributehace que el estado sea visible en el árbol DOM , de modo que sea visible para CSS y los querySelectormétodos.
+  notify hace que los cambios de estado sean observables fuera del elemento
+
+
+
+*Al asignar nombres de atributos a nombres de propiedades:*
+
+Los nombres de los atributos se convierten a nombres de propiedades en minúsculas. Por ejemplo, el atributo se firstNameasigna a firstname.
+
+Los nombres de atributo con guiones se convierten en nombres de propiedad camelCase al poner en mayúscula el carácter que sigue a cada guión y luego se eliminan los guiones. Por ejemplo, el atributo se first-nameasigna a firstName.
+
+_____________________________________________
+
+icon="[[toggleIcon]]"
+<icon-toggle toggle-icon="star" pressed></icon-toggle>
+
+Notarás que el marcado anterior usa toggle-icon, no toggleIcon. Polymer representa los nombres de propiedad de camelCase utilizando nombres de atributos de guiones y mayúsculas.

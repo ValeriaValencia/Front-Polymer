@@ -1,0 +1,63 @@
+getter o un setter
+Son construcciones habituales de los objetos que permiten acceder a los valores o propiedades,sin revelar la forma de implementacion de las clases
+-> Permite encapsular los objetos y enviar mantenimiento de las aplicaciones cuando la forma de implementar esos objetos cambia
+En la practica son simplemente metodos que te permiten acceder a los datos de los objetos para leerlos o asignar nuevos valores,
+El SETTER lo que hace es adignar un valor y el GETTER se encarga de recibir un valor
+
+
+PROPIEDADES COMPUTADAS DE OBJETOS
+una propiedad computada, es decir, una propiedad de un objeto que para resolver su valor tiene que ejecutar una función
+(Las propiedades generadas con get se implementan con funciones no pueden recibir ningún parámetro.)
+Para definir una propiedad computada, agréguela al objeto de propu¿iedades con una asignación computed de teclas a una función informática:
+fullName: {
+  type: String,
+  computed: 'computeFullName(first, last)'
+}
+
+
+<dom-module id="x-custom">
+
+  <template>
+    My name is <span>{{fullName}}</span>
+  </template>
+
+  <script>
+    class XCustom extends Polymer.Element {
+
+      static get is() { return 'x-custom'; }
+
+      static get properties() {
+        return {
+          first: String,
+
+          last: String,
+
+          fullName: {
+            type: String,
+            // when `first` or `last` changes `computeFullName` is called once
+            // and the value it returns is stored as `fullName`
+            computed: 'computeFullName(first, last)'
+          }
+        }
+      }
+
+      computeFullName(first, last) {
+        return first + ' ' + last;
+      }
+    }
+
+    customElements.define(XCustom.is, XCustom);
+  </script>
+
+</dom-module>
+
+
+
+
+-> propiedades computadas
+tenen una caracteristica
+puedes definir metodo con parametros,cada vez que esos parametros de ese metodocambien(seran otras propiedades)cada vez que cambian la propiedad computada se va a ejecutar y me va a devolver el valor nuevo para esta propiedad
+Produce que cada vez que alguna propiedad de mi componente cambie,pueda modificar automaticamente otras propiedades del componente,valores actualizados
+
+
+-> JavaScript no tiene ninguna protección real para las propiedades. Por convención, los elementos de polímero generalmente usan un guión bajo ( _protectedProp) para indicar una propiedad o método protegido (destinado a ser utilizado o anulado por subclases, pero no para uso público) y un guión bajo doble ( __privateProp) para los miembros que son privados de la clase. .

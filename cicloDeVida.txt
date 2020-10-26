@@ -1,0 +1,32 @@
+Ciclo de vida
+Métodos que nos permiten realizar tareas a medida que ocurren ciertas cosas con los elementos personalizados, como su creación, 
+inserción en la página, eliminación de la página, etc. Todos estos estados por los que pasa un componente se llaman el ciclo de vida
+
+Para cada estado se puede asociar lo que se llama una "función callback", que contiene el código que queremos ejecutar como respuesta a ese cambio en el estado del elemento
+
+Los estados del componente a lo largo del ciclo de vida son los siguientes: (Web COmponents)
+
+*constructor*:El constructor se invoca una vez por cada elemento singular creado de un tipo. Es decir, si tenemos 3 instancias (etiquetas, elementos) del custom 
+element "mi-elemento-personalizado", el constructor se llamará 3 veces, uno por cada uno.
+
+*connectedCallback*: Este estado del ciclo de vida ocurre cuando el elemento se inyecta en el DOM de la página.
+
+*disconnectedCallback*: Este estado ocurre cuando el elemento se borra del DOM de la página.
+
+*attributeChangedCallback*: Este momento del ciclo de vida de los componentes se produce cada vez que un atributo o propiedad del componente cambia.
+
+-> Callback específico de Polymer 2: Inicialización del componente
+
+ready: este callback para definir acciones durante el ciclo de vida se denomina "One-time initialization" en la documentación de Polymer 2. Básicamente es como un "connectedCallback", solo que no se ejecuta más 
+que 1 vez, la primera que se inyecta en el DOM de la página.
+
+La diferencia entonces entre connectedCallback y ready es que un elemento particular podría producir muchos connectedCallback pero un único ready. Esto podría ocurrir en el caso que un determinado elemento se coloque en el DOM, luego 
+se quite y se vuelva a colocar. Cada vez que se vuelva a colocar se ejecuta de nuevo connectedCallback, pero el ready solo se ejecutará la primera vez que se inyectó en la página.
+
+-> Invocar a super en los métodos callback de Polymer
+Es importante que, en todo método callback del ciclo de vida de Polymer, se invoque siempre al método correspondiente, pero en la clase padre, por medio de "super".
+el caso de los métodos callback la llamada a super se realiza con el objeto super y seguido del método callback que corresponda, por ejemplo: super.disconnectedCallback() o super.ready().
+
+
+
+https://desarrolloweb.com/articulos/ciclo-vida-componentes-v1-polymer2.html

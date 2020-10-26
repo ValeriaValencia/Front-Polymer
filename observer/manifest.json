@@ -1,0 +1,6 @@
+{
+  "name": "observer",
+  "short_name": "observer",
+  "start_url": "/",
+  "display": "standalone"
+}

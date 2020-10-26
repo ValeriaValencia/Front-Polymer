@@ -1,0 +1,53 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../products-card-information-user/products-card-information-user.html">
+<link rel="import" href="../products-status-information/products-status-information.html">
+
+<dom-module id="my-view2">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .status-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .header-content {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+    <div class="header-content">
+      <products-card-information-user username="Valeria Valencia" user-email="valencia@outlook.com" day="10" month="Octubre" year="2020" iconn="home" icon-top="home" icon-buttom="home">
+      </products-card-information-user>
+      <div class="status-content">
+        <products-status-information name="servicios" count="20"></products-status-information>
+        <products-status-information name="productos" count="10"></products-status-information>
+        <products-status-information name="espacios" count="3"></products-status-information>
+      </div>
+    </div>
+    
+    
+  </template>
+
+  <script>
+    class MyView2 extends Polymer.Element {
+      static get is() { return 'my-view2'; }
+    }
+
+    window.customElements.define(MyView2.is, MyView2);
+  </script>
+</dom-module>

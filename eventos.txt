@@ -1,0 +1,5 @@
+puesto que los eventos de gestos requieren cargar mixins
+
+Los mixins sirven para hacer lo que sería algo parecido a la herencia múltiple. Básicamente sirven para heredar código sin necesidad de que el mixin esté en el extends.
+Son necesarios porque Javascript no tiene herencia múltiple. Pero lo más importante que ya te adelantamos también, los mixins en Polymer 2 son los sustitutos a lo que conocíamos
+ por "behaviors" en Polymer 1.x.
